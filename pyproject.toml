@@ -1,6 +1,6 @@
 [project]
 name = "pyhooky"
-version = "0.2.0"
+version = "0.1.0"
 description = "Lightweight before/after/around hooks for Python callables."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -28,6 +28,7 @@ typed = ["pydantic>=2.0"]
 Homepage = "https://github.com/kiliansen/pyHooky"
 Issues = "https://github.com/kiliansen/pyHooky/issues"
 
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -38,21 +39,13 @@ packages = ["src/pyhooky"]
 [tool.hatch.build.targets.sdist]
 include = ["src/pyhooky", "README.md", "LICENSE", "pyproject.toml"]
 
-[dependency-groups]
-dev = [
-    "pydantic>=2.0",
-    "pytest>=8.0",
-    "pytest-asyncio>=0.23",
-    "pytest-cov>=5.0",
-    "ruff>=0.6",
-    "pyrefly>=0.16",
-]
 
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
 addopts = ["-ra", "--strict-markers", "--strict-config"]
 asyncio_mode = "auto"
+
 
 [tool.coverage.run]
 source = ["src/pyhooky"]
@@ -64,6 +57,7 @@ exclude_lines = [
     "raise NotImplementedError",
     "if TYPE_CHECKING:",
 ]
+
 
 [tool.ruff]
 line-length = 100
@@ -87,6 +81,7 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["B011"]
+
 
 [tool.pyrefly]
 project-includes = ["src", "tests"]
@@ -115,3 +110,14 @@ upload_to_vcs_release = true
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = ["^chore\\(release\\):"]
+
+[dependency-groups]
+dev = [
+    "pydantic>=2.0",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "pyrefly>=0.16",
+]
+
