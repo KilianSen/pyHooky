@@ -5,6 +5,12 @@ Lightweight before/after/around hooks for Python callables.
 ## Install
 
 ```bash
+pip install pyHooky
+
+pip install pyhooky[typed]  # pydantic-typed hook points
+```
+or
+```bash
 uv add pyhooky            # core only — no runtime deps
 uv add 'pyhooky[typed]'   # adds pydantic-typed hook points
 ```
